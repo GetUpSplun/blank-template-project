@@ -1,0 +1,3 @@
+/home/getupsplun/Projects/blank-template-project/build/CMakeFiles/game.dir
+/home/getupsplun/Projects/blank-template-project/build/CMakeFiles/edit_cache.dir
+/home/getupsplun/Projects/blank-template-project/build/CMakeFiles/rebuild_cache.dir
