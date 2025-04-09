@@ -28,9 +28,6 @@ Game::~Game() {
 void Game::Draw() {
 	graphics.Clear((SDL_Color){255,255,255,255});
 
-	map.Draw(graphics);
-	player.Draw(graphics);
-
 	graphics.Render();
 }
 
@@ -43,8 +40,6 @@ void Game::Update() {
 			isRunning = false;
 		}
 	}
-
-	player.Update(delta_time);
 
 	last_time = current_time;
 }
