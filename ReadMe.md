@@ -1,6 +1,6 @@
 ### About
 
-* This repository made for fast creating a project.
+* Created to speed up project creation.
 
 made by *@GetUpSplun*
 
