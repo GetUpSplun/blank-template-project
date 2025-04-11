@@ -13,7 +13,7 @@ void Sprite::Draw(Graphics& graphics, Vector2 position) {
 	rect.x = position.x;
 	rect.y = position.y;
 
-	if (!(rect.x > WINDOW_WIDTH || rect.x < 0) || !(rect.y > WINDOW_HEIGHT || rect.y < 0)) {
+	if (!((rect.x > WINDOW_WIDTH || rect.x < 0 - rect.w) || (rect.y > WINDOW_HEIGHT || rect.y < 0 - rect.h))) {
 		SDL_RenderCopy(graphics.GetRenderer(), texture, NULL, &rect);
 	}
 }
@@ -40,7 +40,7 @@ void SpriteSheetX::Draw(Graphics& graphics, Vector2 position, int width, int hei
 
 	SDL_Rect rerect = {source_rect.w/devider * frame, 0, source_rect.w/devider, source_rect.h};
 
-	if (!(rect.x > WINDOW_WIDTH || rect.x < 0) || !(rect.y > WINDOW_HEIGHT || rect.y < 0)) {
+	if (!((rect.x > WINDOW_WIDTH || rect.x < 0 - rect.w) || (rect.y > WINDOW_HEIGHT || rect.y < 0 - rect.h))) {
 		SDL_RenderCopy(graphics.GetRenderer(), texture, &rerect, &rect);
 	}
 }

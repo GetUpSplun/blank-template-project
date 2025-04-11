@@ -40,4 +40,9 @@ public:
 	}
 };
 
+class Size2 {
+public:
+	float width, height;
+};
+
 #endif

@@ -4,8 +4,7 @@ int x = 0, y = 0;
 
 Tilemap::Tilemap(const char* path, Graphics& graphics, const std::vector<const char*> paths_textures): map_size_x(10), map_size_y(10) {
 	for (int i = 0; i < paths_textures.size(); ++i) {
-		std::cout << "texture loading to array\n";
-		tiles.push_back(new Sprite(graphics, paths_textures[i], 50, 50));
+		tiles.push_back(new Sprite(graphics, paths_textures[i], tile_size.width, tile_size.height));
 	}
 
 	std::ifstream file(path);
@@ -19,13 +18,12 @@ Tilemap::Tilemap(const char* path, Graphics& graphics, const std::vector<const c
 		if (character == ' ' || character == '\n') {
 			++x;
 			if (x == map_size_x) {
-				++y;
 				x = 0;
 				// std::cout << "\n";
 			}
-		}	else {
-				map[x][y] = character - '0';
-				// std::cout << map[x][y] << " ";
+		} else {
+			map.push_back(character-'0');
+			// std::cout << map[map.size()-1] << " ";
 		}
 	}
 
@@ -40,11 +38,7 @@ Tilemap::~Tilemap() {
 }
 
 void Tilemap::Draw(Graphics& graphics) {
-	for (int i = 0; i < map_size_y; ++i) {
-		for (int j = 0; j < map_size_x; ++j) {
-			if (map[j][i] == 1) {
-				tiles[map[j][i]]->Draw(graphics, (Vector2){(float)(j*50),(float)(i*50)});
-			}	
-		}
+	for (int i = 0; i < map.size(); ++i) {
+		tiles[map[i]]->Draw(graphics, (Vector2){(float)(i%map_size_x*tile_size.width),(float)(i/map_size_x*tile_size.height)});
 	}
 }

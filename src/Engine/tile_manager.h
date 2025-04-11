@@ -17,8 +17,13 @@ public:
 
 	void Draw(Graphics& graphics);
 
+	std::vector<int> GetArray() {
+		return map;
+	}
+
 private:
-	int map[100][100];
+	std::vector<int> map;
+
 	int map_size_x, map_size_y;
 
 	std::vector<Sprite*> tiles;
