@@ -8,8 +8,9 @@ set(NAME_PROJECT game)
 
 project(${NAME_PROJECT} VERSION 0.1)
 
-message(${OPTION_BUILD})
+# message(${OPTION_BUILD})
 
+# Demo section
 if(OPTION_BUILD MATCHES "WINDOWS64")
 	set(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
 	set(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
