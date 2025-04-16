@@ -3,9 +3,14 @@
 
 #include "vector.hpp"
 
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 600;
+// Windows settings
+static int WINDOW_WIDTH = 800;
+static int WINDOW_HEIGHT = 600;
 
-const Size2 tile_size = {50,50};
+// Sound settings
+static int MASTER_FREQUENCY = 44100;
+
+// Project standart variables
+static const Size2 tile_size = {50,50};
 
 #endif
