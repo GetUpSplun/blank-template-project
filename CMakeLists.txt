@@ -11,7 +11,7 @@ project(${NAME_PROJECT} VERSION 0.1)
 # message(${OPTION_BUILD})
 
 # Demo section
-if(OPTION_BUILD MATCHES "WINDOWS64")
+#[[ if(OPTION_BUILD MATCHES "WINDOWS64")
 	set(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
 	set(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
 	set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
@@ -41,7 +41,7 @@ elseif(OPTION_BUILD MATCHES "LINUX64")
 
 	target_include_directories(${NAME_PROJECT} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 	target_link_libraries(${NAME_PROJECT} PRIVATE SDL2::SDL2 SDL2_image::SDL2_image SDL2_mixer::SDL2_mixer)
-else()
+else() ]]
 	find_package(SDL2 REQUIRED)
 	find_package(SDL2_image REQUIRED)
 
@@ -50,6 +50,6 @@ else()
 
 	target_include_directories(${NAME_PROJECT} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 	target_link_libraries(${NAME_PROJECT} PRIVATE SDL2::SDL2 SDL2_image::SDL2_image)
-endif()
+# endif()
 
 message("End of Build")
