@@ -8,12 +8,10 @@ made by *@GetUpSplun*
 
 * Dependencies:
     + cmake
-
     + libsdl2
-
     + build-essential
 
-* Build:
+* Compile:
     ```bash
     mkdir build
     cd build
