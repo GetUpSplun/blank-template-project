@@ -39,6 +39,6 @@ Tilemap::~Tilemap() {
 
 void Tilemap::Draw(Graphics& graphics) {
 	for (int i = 0; i < map.size(); ++i) {
-		tiles[map[i]]->Draw(graphics, (Vector2){(float)(i%map_size_x*tile_size.width),(float)(i/map_size_x*tile_size.height)});
+		tiles[map[i]]->Draw(graphics, (Vector2){(float)(i%map_size_x*tile_size.width)-camera_position.x,(float)(i/map_size_x*tile_size.height)-camera_position.y});
 	}
 }

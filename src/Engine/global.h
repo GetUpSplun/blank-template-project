@@ -13,4 +13,6 @@ static int MASTER_FREQUENCY = 44100;
 // Project standart variables
 static const Size2 tile_size = {50,50};
 
+inline Vector2 camera_position = {100,0};
+
 #endif
