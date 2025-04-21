@@ -44,12 +44,13 @@ elseif(OPTION_BUILD MATCHES "LINUX64")
 else() ]]
 	find_package(SDL2 REQUIRED)
 	find_package(SDL2_image REQUIRED)
+ 	find_package(SDL2_mixer REQUIRED)
 
 	file(GLOB_RECURSE SRC_FILES src/*.cpp)
 	add_executable(${NAME_PROJECT} ${SRC_FILES})
 
 	target_include_directories(${NAME_PROJECT} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-	target_link_libraries(${NAME_PROJECT} PRIVATE SDL2::SDL2 SDL2_image::SDL2_image)
+	target_link_libraries(${NAME_PROJECT} PRIVATE SDL2::SDL2 SDL2_image::SDL2_image SDL2_mixer::SDL2_mixer)
 # endif()
 
 message("End of Build")
