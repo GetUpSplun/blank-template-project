@@ -9,7 +9,7 @@ public:
 	bool IsKeyDown(SDL_Scancode code);
 	bool IsKeyPressed(SDL_Scancode code);
 
-	bool IsMouseDown(SDL_Event& event, Uint32 type);
+	static bool IsMouseDown(SDL_Event& event, Uint32 type);
 	bool IsMousePressed(SDL_Event& event, Uint32 type);
 
 	// void Update();

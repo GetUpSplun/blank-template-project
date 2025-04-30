@@ -9,7 +9,7 @@
 
 class Physics {
 public:
-	static bool isColliding(Vector2* aPos, Vector2* bPos, Size2 aSize, Size2 bSize);
+	static bool isColliding(Vector2 aPos, Vector2 bPos, Size2 aSize, Size2 bSize);
 
 	static int isMapColliding(Tilemap* map, Vector2* position);
 
