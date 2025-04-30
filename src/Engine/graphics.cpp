@@ -24,3 +24,13 @@ void Graphics::Render() {
 SDL_Renderer* Graphics::GetRenderer() {
 	return renderer;
 }
+
+void DrawRect(Graphics& graphics, SDL_Rect rect, SDL_Color color) {
+	SDL_SetRenderDrawColor(graphics.GetRenderer(), color.r, color.g, color.b, color.a);
+	SDL_RenderDrawRect(graphics.GetRenderer(), &rect);
+}
+
+void DrawFillRect(Graphics& graphics, SDL_Rect rect, SDL_Color color) {
+	SDL_SetRenderDrawColor(graphics.GetRenderer(), color.r, color.g, color.b, color.a);
+	SDL_RenderFillRect(graphics.GetRenderer(), &rect);
+}

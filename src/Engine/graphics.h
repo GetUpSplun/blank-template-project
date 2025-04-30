@@ -21,4 +21,8 @@ private:
 
 };
 
+void DrawRect(Graphics& graphics, SDL_Rect rect, SDL_Color color);
+
+void DrawFillRect(Graphics& graphics, SDL_Rect rect, SDL_Color color);
+
 #endif
