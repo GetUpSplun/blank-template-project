@@ -4,7 +4,7 @@ int x = 0, y = 0;
 
 Tilemap::Tilemap(const char* path, Graphics& graphics, const std::vector<const char*> paths_textures): map_size_x(10), map_size_y(10) {
 	for (int i = 0; i < paths_textures.size(); ++i) {
-		tiles.push_back(new Sprite(graphics, paths_textures[i], tile_size.width, tile_size.height));
+		tiles.push_back(new Sprite(graphics, paths_textures[i], tile_size));
 	}
 
 	std::ifstream file(path);
@@ -39,6 +39,6 @@ Tilemap::~Tilemap() {
 
 void Tilemap::Draw(Graphics& graphics) {
 	for (int i = 0; i < map.size(); ++i) {
-		tiles[map[i]]->Draw(graphics, (Vector2){(float)(i%map_size_x*tile_size.width)-camera_position.x,(float)(i/map_size_x*tile_size.height)-camera_position.y});
+		tiles[map[i]]->Draw(graphics, (Vector2){(float)(i%map_size_x*tile_size.width)-camera_position.x,(float)(i/map_size_x*tile_size.height)-camera_position.y}, SDL_FLIP_NONE);
 	}
 }

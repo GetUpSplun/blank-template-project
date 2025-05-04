@@ -11,9 +11,9 @@ class Physics {
 public:
 	static bool isColliding(Vector2 aPos, Vector2 bPos, Size2 aSize, Size2 bSize);
 
-	static int isMapColliding(Tilemap* map, Vector2* position);
+	static int isMapColliding(Tilemap* map, Vector2* position, Size2 object_size);
 
-	static void mapCollision(Tilemap* map, Vector2* position, Size2 player_size);
+	static void mapCollision(Tilemap* map, Vector2* position, Size2 object_size);
 
 private:
 

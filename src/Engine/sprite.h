@@ -9,19 +9,20 @@
 
 class Sprite {
 public:
-	Sprite(Graphics& graphics, const char* path, int width, int height);
-	void Draw(Graphics& graphics, Vector2 position);
+	Sprite(Graphics& graphics, const char* path, Size2 size);
+	void Draw(Graphics& graphics, Vector2 position, SDL_RendererFlip flip);
 	~Sprite();
 
 private:
 	SDL_Texture* texture;
 	SDL_Rect rect;
+	const SDL_Point point = {0,0};
 };
 
 class SpriteSheetX {
 public:
 	SpriteSheetX(Graphics& graphics, const char* path, SDL_Rect source_rect, int devider);
-	void Draw(Graphics& graphics, Vector2 position, int width, int height, int frame);
+	void Draw(Graphics& graphics, Vector2 position, Size2 size, int frame, SDL_RendererFlip flip);
 	~SpriteSheetX();
 
 private:
@@ -29,6 +30,7 @@ private:
 	SDL_Rect rect;
 	SDL_Rect source_rect;
 	int devider = 0;
+	const SDL_Point point = {0,0};
 };
 
 #endif

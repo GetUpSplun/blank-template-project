@@ -27,24 +27,20 @@ bool Input::IsKeyPressed(SDL_Scancode code) {
 	return false;
 }
 
-//TODO fix mouse down
-bool Input::IsMouseDown(SDL_Event& event, Uint32 type) {
-	if (event.button.button == type) {
-		return true;
-	}
+bool Input::IsMouseDown(Uint32 type) {
+	if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(type)) return true;
 
 	return false;
 }
 
-//TODO fix mouse pressed
-bool Input::IsMousePressed(SDL_Event& event, Uint32 type) {
+bool Input::IsMousePressed(Uint32 type) {
 	for (int i = 0; i < mouse_buttons.size(); ++i) {
-		if (!IsMouseDown(event, mouse_buttons[i])) {
+		if (!IsMouseDown(mouse_buttons[i])) {
 			mouse_buttons.erase(mouse_buttons.begin()+i);
 		}
 	}
 	
-	if (IsMouseDown(event, type)) {
+	if (IsMouseDown(type)) {
 		for (int i = 0; i < mouse_buttons.size(); ++i) {
 			if (mouse_buttons[i] == type) {
 				return false;

@@ -10,6 +10,10 @@ void Text::Render(Graphics& graphics, const char* text, SDL_Rect rect) {
 	surface = TTF_RenderText_Solid(font, text, color);
 	texture = SDL_CreateTextureFromSurface(graphics.GetRenderer(), surface);
 	SDL_RenderCopy(graphics.GetRenderer(), texture, NULL, &rect);
+	SDL_FreeSurface(surface);
+	surface = NULL;
+	SDL_DestroyTexture(texture);
+	texture = NULL;
 }
 
 Text::~Text() {
