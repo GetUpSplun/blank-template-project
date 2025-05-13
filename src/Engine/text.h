@@ -11,6 +11,8 @@ public:
 
 	void Render(Graphics& graphics, const char* text, SDL_Rect rect);
 
+	void SetColor(SDL_Color color);
+
 	~Text();
 
 private:
@@ -19,7 +21,6 @@ private:
 
 	SDL_Color color;
 	TTF_Font* font;
-	int font_size;
 
 };
 

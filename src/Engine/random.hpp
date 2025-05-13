@@ -8,9 +8,9 @@
 
 class Random {
 public:
-	static int irange_random(int a, int b);
+	static int irange(int a, int b);
 
-	static float frange_random(float a, float b);
+	static float frange(float a, float b);
 };
 
 #endif

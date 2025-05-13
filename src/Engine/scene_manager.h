@@ -10,7 +10,7 @@ class IScene {
 public:
 	virtual void Load(Graphics& graphics) = 0;
 
-	virtual void Update(float delta_time, SDL_Event& event) = 0;
+	virtual void Update(float delta_time) = 0;
 
 	virtual void Draw(Graphics& graphics) = 0;
 

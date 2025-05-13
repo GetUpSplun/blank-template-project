@@ -3,7 +3,6 @@
 Text::Text(SDL_Color color, TTF_Font* font, int size) {
 	this->color = color;
 	this->font = font;
-	this->font_size = size;
 }
 
 void Text::Render(Graphics& graphics, const char* text, SDL_Rect rect) {
@@ -14,6 +13,10 @@ void Text::Render(Graphics& graphics, const char* text, SDL_Rect rect) {
 	surface = NULL;
 	SDL_DestroyTexture(texture);
 	texture = NULL;
+}
+
+void Text::SetColor(SDL_Color color) {
+	this->color = color;
 }
 
 Text::~Text() {

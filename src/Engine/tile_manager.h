@@ -11,11 +11,14 @@
 
 class Tilemap {
 public:
-	Tilemap(const char* path, Graphics& graphics, const std::vector<const char*> paths_texture);
+	Tilemap(const char* path, Graphics& graphics, const std::vector<const char*> paths_texture, int size_x, int size_y);
 
 	~Tilemap();
 
 	void Draw(Graphics& graphics);
+
+	int GetWidth();
+	int GetHeight();
 
 	std::vector<int> GetArray() {
 		return map;

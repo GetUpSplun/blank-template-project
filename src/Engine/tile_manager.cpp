@@ -2,7 +2,7 @@
 
 int x = 0, y = 0;
 
-Tilemap::Tilemap(const char* path, Graphics& graphics, const std::vector<const char*> paths_textures): map_size_x(10), map_size_y(10) {
+Tilemap::Tilemap(const char* path, Graphics& graphics, const std::vector<const char*> paths_textures, int size_x, int size_y): map_size_x(size_x), map_size_y(--size_y) {
 	for (int i = 0; i < paths_textures.size(); ++i) {
 		tiles.push_back(new Sprite(graphics, paths_textures[i], tile_size));
 	}
@@ -15,7 +15,7 @@ Tilemap::Tilemap(const char* path, Graphics& graphics, const std::vector<const c
 
 	char character;
 	while (file.get(character)) {
-		if (character == ' ' || character == '\n') {
+		if (character == ' ' || character == '\n' || character == ',' || character == '.' || character == '|') {
 			++x;
 			if (x == map_size_x) {
 				x = 0;
@@ -36,6 +36,9 @@ Tilemap::~Tilemap() {
 		tiles[i] = NULL;
 	}
 }
+
+int Tilemap::GetWidth() {return map_size_x;}
+int Tilemap::GetHeight() {return map_size_y;}
 
 void Tilemap::Draw(Graphics& graphics) {
 	for (int i = 0; i < map.size(); ++i) {

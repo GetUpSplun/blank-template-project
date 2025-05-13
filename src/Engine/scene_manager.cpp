@@ -9,9 +9,10 @@ IScene* SceneManager::GetScene() {
 }
 
 void SceneManager::NewScene(IScene* s) {
-	for (std::vector<IScene*>::iterator i = scenes.begin(); i < scenes.end(); ++i) {
-		delete *i;
-		*i = NULL;
+	for (int i = 0; i < scenes.size(); ++i) {
+		scenes[i]->Unload();
+		delete scenes[i];
+		scenes[i] = NULL;
 	}
 	scenes.clear();
 	scenes.push_back(s);
