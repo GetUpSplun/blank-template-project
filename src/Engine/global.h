@@ -7,12 +7,9 @@
 static int WINDOW_WIDTH = 800;
 static int WINDOW_HEIGHT = 600;
 
-// Sound settings
-static int MASTER_FREQUENCY = 44100;
-
 // Project standart variables
 static const Size2 tile_size = {50,50};
 
-inline Vector2 camera_position = {100,0};
+inline Vector2 camera_position = {0,0};
 
 #endif
