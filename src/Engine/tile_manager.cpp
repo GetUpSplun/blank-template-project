@@ -42,6 +42,6 @@ int Tilemap::GetHeight() {return map_size_y;}
 
 void Tilemap::Draw(Graphics& graphics) {
 	for (int i = 0; i < map.size(); ++i) {
-		tiles[map[i]]->Draw(graphics, (Vector2){(float)(i%map_size_x*tile_size.width)-camera_position.x,(float)(i/map_size_x*tile_size.height)-camera_position.y}, SDL_FLIP_NONE);
+		tiles[map[i]]->Draw(graphics, (Vector2){(float)(i%map_size_x*tile_size.width)-camera_position.x,(float)(i/map_size_x*tile_size.height)-camera_position.y}, 0, SDL_FLIP_NONE);
 	}
 }

@@ -26,6 +26,12 @@ public:
 
 	void NewScene(IScene* scene);
 
+	void PushScene(IScene* scene);
+	
+	void PopScene();
+
+	void Clear();
+
 	~SceneManager();
 
 private:

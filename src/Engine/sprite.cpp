@@ -9,12 +9,12 @@ Sprite::Sprite(Graphics& graphics, const char* path, Size2 size) {
 		std::cout << "can't create texture: " << IMG_GetError() << std::endl;
 }
 
-void Sprite::Draw(Graphics& graphics, Vector2 position, SDL_RendererFlip flip) {
+void Sprite::Draw(Graphics& graphics, Vector2 position, const double angle, SDL_RendererFlip flip) {
 	rect.x = position.x;
 	rect.y = position.y;
 
 	if (!((rect.x > WINDOW_WIDTH || rect.x < 0 - rect.w) || (rect.y > WINDOW_HEIGHT || rect.y < 0 - rect.h))) {
-		SDL_RenderCopyEx(graphics.GetRenderer(), texture, NULL, &rect, 0.0, &point, flip);
+		SDL_RenderCopyEx(graphics.GetRenderer(), texture, NULL, &rect, angle, &point, flip);
 	}
 }
 
@@ -32,7 +32,7 @@ SpriteSheetX::SpriteSheetX(Graphics& graphics, const char* path, SDL_Rect source
 		std::cout << "can't create texture: " << IMG_GetError() << std::endl;
 }
 
-void SpriteSheetX::Draw(Graphics& graphics, Vector2 position, Size2 size, int frame, SDL_RendererFlip flip) {
+void SpriteSheetX::Draw(Graphics& graphics, Vector2 position, Size2 size, int frame, const double angle, SDL_RendererFlip flip) {
 	rect.x = position.x;
 	rect.y = position.y;
 	rect.w = size.width;
@@ -41,7 +41,7 @@ void SpriteSheetX::Draw(Graphics& graphics, Vector2 position, Size2 size, int fr
 	SDL_Rect rerect = {source_rect.w/devider * frame, 0, source_rect.w/devider, source_rect.h};
 
 	if (!((rect.x > WINDOW_WIDTH || rect.x < 0 - rect.w) || (rect.y > WINDOW_HEIGHT || rect.y < 0 - rect.h))) {
-		SDL_RenderCopyEx(graphics.GetRenderer(), texture, &rerect, &rect, 0.0, &point, flip);
+		SDL_RenderCopyEx(graphics.GetRenderer(), texture, &rerect, &rect, angle, &point, flip);
 	}
 }
 

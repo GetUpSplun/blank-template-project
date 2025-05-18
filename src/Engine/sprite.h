@@ -10,7 +10,7 @@
 class Sprite {
 public:
 	Sprite(Graphics& graphics, const char* path, Size2 size);
-	void Draw(Graphics& graphics, Vector2 position, SDL_RendererFlip flip);
+	void Draw(Graphics& graphics, Vector2 position, const double angle, SDL_RendererFlip flip);
 	~Sprite();
 
 private:
@@ -22,7 +22,7 @@ private:
 class SpriteSheetX {
 public:
 	SpriteSheetX(Graphics& graphics, const char* path, SDL_Rect source_rect, int devider);
-	void Draw(Graphics& graphics, Vector2 position, Size2 size, int frame, SDL_RendererFlip flip);
+	void Draw(Graphics& graphics, Vector2 position, Size2 size, int frame, const double angle, SDL_RendererFlip flip);
 	~SpriteSheetX();
 
 private:
